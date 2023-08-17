@@ -1,3 +1,4 @@
+//SEARCH START
 const search_bar = document.querySelector('#search');
 
 function search(e) {
@@ -32,3 +33,34 @@ function validateSearch(searchTerm, lis){
 
 
 search_bar.addEventListener('input', search)
+
+//SEARCH END
+
+
+
+// ADD START
+
+const add_btn = document.querySelector("#adder")
+
+function add_item(e){
+    e.preventDefault()
+
+    const input_field = document.querySelector('#adder-field');
+    let itemValue = input_field.value.trim();
+
+    if (itemValue){
+        const item = document.createElement('li');
+        const ul = document.querySelector('ul');
+        console.log(itemValue)
+        item.textContent = itemValue;
+        item.innerHTML += ' <button class="delete-item">X</button>';
+        ul.appendChild(item);
+    }
+
+
+    
+}
+
+add_btn.addEventListener('click', add_item)
+
+// ADD END

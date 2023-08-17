@@ -50,11 +50,14 @@ function add_item(e){
 
     if (itemValue){
         const item = document.createElement('li');
-        const ul = document.querySelector('ul');
-        console.log(itemValue)
+        const ul = document.querySelector('ul');    
         item.textContent = itemValue;
         item.innerHTML += ' <button class="delete-item">X</button>';
         ul.appendChild(item);
+
+        
+        const removeBtn = item.querySelector('button')
+        removeBtn.addEventListener('click', removeItem)
     }
 
 
@@ -64,3 +67,18 @@ function add_item(e){
 add_btn.addEventListener('click', add_item)
 
 // ADD END
+
+
+
+//REMOVE START
+
+removeBtns = document.querySelectorAll('.delete-item');
+removeBtns.forEach(removeBtn =>removeBtn.addEventListener('click', removeItem))
+
+function removeItem(event){
+    itemToRemove = event.target.parentElement;
+    ul = document.querySelector('ul')
+    ul.removeChild(itemToRemove)
+}
+
+//REMOVE END
